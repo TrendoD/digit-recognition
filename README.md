@@ -52,7 +52,7 @@ Direktori Full Predictions :
 
 Run with :
 ```bash
-python digit_recognizer.py --dir  path/to/your_folder
+python digit_recognizer.py --dir path/to/your_folder
 ```
 
 

@@ -1,4 +1,4 @@
-# Two-Digit Recognition System
+# Digit Recognition System
 
 ## Features
 - MNIST-based CNN model
@@ -6,33 +6,12 @@
 - Confidence scoring
 - Image preprocessing pipeline
 
-## Setup
-1. Create virtual environment:
-```
-python -m venv venv
-venv\Scripts\activate
-```
-2. Install requirements:
-```
-pip install -r requirements.txt
-```
-3. Create required directories:
-```
-mkdir data\raw models\saved_models results
-```
-
-4. Force directory creation in code:
-```python
-import os
-os.makedirs('models/saved_models', exist_ok=True)
-```
-
 ## Complete Workflow Guide
 
 ### 1. System Setup
 ```bash
 # Clone repository
-git clone https://github.com/yourrepo/digit-recognition.git
+git clone https://github.com/TrendoD/digit-recognition
 cd digit-recognition
 
 # Set up environment
@@ -62,43 +41,20 @@ python src/model/evaluate_model.py
 ```
 
 ### 4. Making Predictions
-Create `demo.py`:
-```python
-from src.inference.predictor import Predictor
-from src.utils.visualization import ResultVisualizer
-
-# Initialize predictor
-predictor = Predictor('models/saved_models/digit_model.keras')
-
-# Predict and display
-image_path = 'data/raw/test_image.png'  # Your image path
-result = predictor.predict(image_path)
-
-print(f"\nPrediction Result:")
-print(f"Number: {result['number']:02d}")
-print(f"Average Confidence: {result['confidence']:.2%}")
-
-ResultVisualizer.display_results(
-    result['original_image'],
-    result['processed_image'],
-    result
-)
-```
+Only 1 Image Prediction:
 
 Run with:
 ```bash
-python demo.py --image_path path/to/your_image.png
+python digit_recognizer.py --image_path path/to/your_image.png
 ```
 
-To use the default test image:
+Direktori Full Predictions :
+
+Run with :
 ```bash
-python demo.py
+python digit_recognizer.py --dir  path/to/your_folder
 ```
 
-### 5. Generating Test Images (Optional)
-```bash
-python generate_test_image.py
-```
 
 ## Troubleshooting
 Q: Getting "No such file" errors?
